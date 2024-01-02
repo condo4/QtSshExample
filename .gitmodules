@@ -1,0 +1,3 @@
+[submodule "QtSsh"]
+	path = QtSsh
+	url = https://github.com/condo4/QtSsh.git
