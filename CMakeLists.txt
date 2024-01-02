@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(QtSshExample VERSION 0.1 LANGUAGES CXX)
+project(QtSshExample VERSION 0.1 LANGUAGES C CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 
 qt_add_executable(appQtSshExample
@@ -17,6 +17,8 @@ qt_add_qml_module(appQtSshExample
     VERSION 1.0
     QML_FILES Main.qml
 )
+
+include(QtSsh/qtssh.cmake)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
