@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(QtSshExample VERSION 0.1 LANGUAGES C CXX)
+project(QtSshExample VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,6 +20,7 @@ qt_add_qml_module(appQtSshExample
 
 include(QtSsh/qtssh.cmake)
 
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
@@ -32,8 +33,9 @@ set_target_properties(appQtSshExample PROPERTIES
 )
 
 target_link_libraries(appQtSshExample
-    PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick ${QTSSH_LIBRARIES}
 )
+add_dependencies(appQtSshExample QtSsh)
 
 include(GNUInstallDirs)
 install(TARGETS appQtSshExample
